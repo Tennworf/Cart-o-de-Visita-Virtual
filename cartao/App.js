@@ -16,7 +16,6 @@ export default function App() {
     'Não esqueça de beber água!',
   ];
 
-  // Notificação a cada 5 segundos quando o switch está ligado
   useEffect(() => {
     let intervalo;
 
@@ -29,7 +28,6 @@ export default function App() {
       setNotificacao('');
     }
 
-    // para o intervalo quando o switch é desligado
     return () => clearInterval(intervalo);
   }, [ligado]);
 
@@ -46,15 +44,11 @@ export default function App() {
   return (
     <SafeAreaView style={styles.tela}>
       <ScrollView contentContainerStyle={styles.conteudo}>
-        {/* Notificação */}
-        {notificacao !== '' && (
-          <View style={styles.notificacao}>
-            <Text style={styles.textoBranco}>{notificacao}</Text>
-          </View>
-        )}
+
+     
 
         <Image
-     source={require('./assets/foto.jpg')}
+         source={require('./assets/25273339.jpg')}
           style={styles.avatar}
         />
 
@@ -76,9 +70,15 @@ export default function App() {
         >
           <Text style={styles.textoBranco}>Salvar</Text>
         </TouchableOpacity>
+
+    {/* Notificação */}
+        {notificacao !== '' && (
+          <View style={styles.notificacao}>
+            <Text style={styles.textoBranco}>{notificacao}</Text>
+          </View>
+        )}
       </ScrollView>
 
-      {/* Modal para editar a bio */}
       <Modal visible={modalAberto} animationType="slide" transparent={true}>
         <View style={styles.fundoModal}>
           <View style={styles.caixaModal}>
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     padding: 12,
     borderRadius: 8,
-    marginBottom: 10,
+    marginTop: 20,
   },
   avatar: {
     width: 150,
